@@ -1,0 +1,301 @@
+* {
+    margin: 0%;
+      padding: 0;
+      box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(180deg, #0b0d2e, #1b1464);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+header h1 {
+  font-size: 42px;
+  letter-spacing: 3px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+.card {
+  width: 260px;
+  padding: 25px;
+    text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card h2 {
+  margin: 15px 0 10px;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 6px 14px;
+  background: #ff9f1c;
+  color: #000;
+  border-radius: 20px;
+  font-size: 14px;
+}
+Шаг 6. Рисуем планету средствами CSS
+.planet {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.earth {
+  background: radial-gradient(circle at 30% 30%, #6dd5fa, #2980b9 60%, #1b4f72);
+}
+
+.mars {
+  background: radial-gradient(circle at 30% 30%, #ff9a76, #c0392b 60%, #7b241c);
+}
+Шаг 7. Эффект при наведении
+.card:hover {
+  transform: translateY(-12px) scale(1.04);
+  box-shadow: 0 15px 40px rgba(255, 159, 28, 0.5);
+}
+Шаг 8. Анимация вращения и пульсации
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.planet {
+  animation: float 3s ease-in-out infinite;
+}
+/* 5. CSS-переменные */
+:root {
+  --sun: #ffd32a;
+  --bg-color: #0b0b1a;
+  --card-bg: rgba(25, 25, 45, 0.85);
+  --text-color: #ffffff;
+  --orbit-border: rgba(255, 255, 255, 0.15);
+}
+
+/* Негизги стилдер */
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* --- 4. НЕГИЗГИ ТАЛАПТАР БОЮНЧА КАРТОЧКАЛАР --- */
+
+/* Селектор по тегу */
+section {
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+}
+
+/* Flexbox жайгашуу */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+/* Селектор по классу */
+.planet-card {
+  background: var(--card-bg);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  width: 220px;
+  text-align: center;
+  /* Плавный переход для hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Псевдокласс :hover */
+.planet-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Планеталардын сүрөтү же кругу (radial-gradient) */
+.planet-visual {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+  box-shadow: inset -5px -5px 15px rgba(0,0,0,0.6);
+}
+
+/* Төрт башка планета (radial-gradient менен) */
+.mars {
+  background: radial-gradient(circle at 30% 30%, #ff6b6b, #c0392b);
+}
+
+.jupiter {
+  background: radial-gradient(circle at 30% 30%, #f3a812, #d35400);
+}
+
+.earth {
+  background: radial-gradient(circle at 30% 30%, #3498db, #2980b9);
+}
+
+.neptune {
+  background: radial-gradient(circle at 30% 30%, #00d2d3, #0984e3);
+}
+
+/* @keyframes анимациясы карточкалар үчүн */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.planet-card {
+  animation: float 6s ease-in-out infinite;
+}
+
+
+--- /* 5. КОШУМЧА ТАПШЫРМА: «Живая Солнечная система» */ ---
+
+.solar-system {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Жёлтое Солнце в центре */
+.sun {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: var(--sun);
+  border-radius: 50%;
+  box-shadow: 0 0 35px var(--sun), 0 0 70px #f39c12;
+  z-index: 20;
+}
+
+/* Орбиталар */
+.orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed var(--orbit-border);
+  transform-origin: center;
+}
+
+/* 1-орбита (Меркурий / Жакын) */
+.orbit-1 {
+  width: 200px;
+  height: 200px;
+  animation: rotateOrbit 5s linear infinite;
+}
+
+/* 2-орбита (Марс / Алыс) */
+.orbit-2 {
+  width: 360px;
+  height: 360px;
+  animation: rotateOrbit 10s linear infinite;
+}
+
+/* Планеталар орбитанын үстүндө */
+.orbit-planet {
+  position: absolute;
+  border-radius: 50%;
+  top: -7px;
+  left: calc(50% - 7px);
+}
+
+.p1 {
+  width: 14px;
+  height: 14px;
+  background: #ff9f43;
+  box-shadow: 0 0 8px #ff9f43;
+}
+
+.p2 {
+  width: 18px;
+  height: 18px;
+  background: #00d2d3;
+  box-shadow: 0 0 10px #00d2d3;
+  top: -9px;
+  left: calc(50% - 9px);
+}
+
+/* Орбитанын айлануу анимациясы */
+@keyframes rotateOrbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Мерцающие звёзды фон үчүн */
+.stars-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(white 1px, transparent 0);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  animation: twinkle 3s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.2; }
+  100% { opacity: 0.6; }
+}
+
+
+--- /* 6. Адаптивность (max-width: 600px) */ ---
+
+@media (max-width: 600px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .planet-card {
+    width: 80%;
+  }
+
+  .solar-system {
+    width: 300px;
+    height: 300px;
+  }
+
+  .orbit-1 {
+    width: 140px;
+    height: 140px;
+  }
+
+  .orbit-2 {
+    width: 260px;
+    height: 260px;
+  }
+}
